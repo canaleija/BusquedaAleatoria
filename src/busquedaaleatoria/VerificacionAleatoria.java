@@ -5,17 +5,19 @@
  */
 package busquedaaleatoria;
 
+import java.util.Random;
+
 /**
  *
  * @author Roberto Cruz Leija
  */
-public class BusquedaDeterministica {
+public class VerificacionAleatoria {
     
     // donde buscar 
     private int [] arreglo;
     private int rango;
 
-    public BusquedaDeterministica(int[] arreglo,int rango) {
+    public VerificacionAleatoria(int[] arreglo,int rango) {
         this.arreglo = arreglo;
         this.rango = rango;
     }
@@ -23,6 +25,7 @@ public class BusquedaDeterministica {
     public double verficar(){
        
         double inicio = 0;
+        Random ram = new Random();
         System.currentTimeMillis();
         double _final = 0;
         // recorremos el arreglo 
@@ -30,11 +33,13 @@ public class BusquedaDeterministica {
         for (int x=0; x < this.arreglo.length;x++){
           // buscar el elemento en la posicion x
           int nv = this.arreglo[x];
-          for (int y = 0 ; y <=rango;y++){
-              if (nv == y){
-                  break;
-              }
-          }
+          // generar un aleatorio 
+          int y;
+        
+          do {
+             y=ram.nextInt(rango+1);
+             
+          }while(y!=nv);
         
         }
         _final = System.currentTimeMillis();

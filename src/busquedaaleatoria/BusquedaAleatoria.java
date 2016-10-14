@@ -17,8 +17,13 @@ public class BusquedaAleatoria {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        BusquedaDeterministica bd = new BusquedaDeterministica(generarArreglo(1000, 100000), 1000);
-        System.out.println(bd.verficar());
+        int arreglo [] = generarArreglo(1000, 1000000);
+        VerificacionAleatoria va = new  VerificacionAleatoria(arreglo, 1000);
+        for (int x=0; x < 500;x++){
+           System.out.println(va.verficar());
+        }
+        
+        
     }
     
     
